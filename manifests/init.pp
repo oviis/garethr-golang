@@ -16,10 +16,10 @@ class golang(
   validate_string($version)
   validate_re($::osfamily, '^Debian$', 'This module uses PPA repos and only works with Debian based distros')
 
-  apt::ppa { 'ppa:juju/golang':}
+  apt::ppa { 'ppa:juju/stable':}
 
   package { 'golang':
     ensure  => $version,
-    require => Apt::Ppa['ppa:juju/golang'],
+    require => Apt::Ppa['ppa:juju/stable'],
   }
 }
